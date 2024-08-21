@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant-Based Diet Plans</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Very light gray background */
+            color: #333333; /* Darker text color for contrast */
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: #2a9d8f; /* Teal background for header */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            color: #ffffff; /* White header text for contrast */
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #e9e9e9; /* Light gray for subtext */
+        }
+
+        .cta-button {
+            padding: 12px 25px;
+            background-color: #333333; /* Dark gray for buttons */
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #444444; /* Slightly lighter gray for hover state */
+            transform: translateY(-5px);
+        }
+
+        .header-icons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-icons a {
+            color: #ffffff; /* White for icons */
+            font-size: 1.5rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 0;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2a9d8f; /* Teal for section headers */
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666666; /* Soft dark gray for body text */
+        }
+
+        .how-it-works, .subscription-plans, .testimonial, .faq, .blog {
+            background-color: #f7f7f7; /* Light gray for background sections */
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .how-it-works:hover, .subscription-plans:hover, .testimonial:hover, .faq:hover, .blog:hover {
+            transform: translateY(-10px);
+        }
+
+        .steps, .blog-grid {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .step, .blog-card {
+            width: 30%;
+            background-color: #2a9d8f; /* Teal for step and blog cards */
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover, .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .step img, .blog-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .step h3, .blog-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff; /* White for step and blog titles */
+        }
+
+        .step p, .blog-card p {
+            font-size: 1rem;
+            color: #f0f0f0; /* Light gray for text */
+        }
+
+        .recipes-section {
+            margin-bottom: 60px;
+        }
+
+        .recipes-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .recipe-card {
+            position: relative;
+            background-color: #2a9d8f; /* Teal for recipe cards */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            flex: 1 1 calc(33% - 20px); /* Three items per row */
+            margin: 10px;
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .recipe-card h3 {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            color: #ffffff; /* White for recipe titles */
+        }
+
+        .recipe-card .price {
+            font-size: 1.2rem;
+            color: #e9e9e9; /* Light gray for prices */
+            margin: 10px 0;
+        }
+
+        .recipe-card .buttons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .recipe-card button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            color: #ffffff; /* White text on buttons */
+            min-width: 100px; /* Minimum width for consistent button size */
+        }
+
+        .buy-now {
+            background-color: #333333; /* Dark gray for Buy Now buttons */
+        }
+
+        .buy-now:hover {
+            background-color: #444444; /* Lighter gray for hover state */
+        }
+
+        .read-more {
+            background-color: #6d6875; /* Soft gray for Read More buttons */
+        }
+
+        .read-more:hover {
+            background-color: #7d7a85; /* Slightly darker gray for hover state */
+        }
+
+        .health-benefits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #f7f7f7; /* Light gray for health benefits section */
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefit-card {
+            background-color: #2a9d8f; /* Teal for benefit cards */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            flex: 1 1 calc(33% - 20px);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card h3 {
+            color: #ffffff; /* White for benefit titles */
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #e9e9e9; /* Light gray text for readability */
+        }
+
+        .subscription-plans {
+            padding: 60px 20px;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .plan {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #2a9d8f;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #f7f7f7; /* Light gray for plan cards */
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan h4 {
+            font-size: 1.8rem;
+            margin: 10px 0;
+            color: #2a9d8f; /* Teal for plan titles */
+        }
+
+        .plan p {
+            font-size: 1rem;
+            margin: 20px 0;
+            color: #666666; /* Soft dark gray for plan text */
+        }
+
+        .plan button {
+            padding: 10px 20px;
+            background-color: #333333; /* Dark gray for plan buttons */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .plan button:hover {
+            background-color: #444444; /* Lighter gray for hover state */
+        }
+
+        .testimonial {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 60px 20px;
+            background-color: #f7f7f7; /* Light gray for testimonials section */
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background-color: #2a9d8f; /* Teal for testimonial cards */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            flex: 1 1 calc(33% - 20px);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card img {
+            border-radius: 50%;
+            margin-bottom: 15px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .testimonial-card p {
+            color: #ffffff; /* White text for testimonial content */
+            font-style: italic;
+        }
+
+        .testimonial-card h4 {
+            color: #e9e9e9; /* Light gray for testimonial names */
+            margin-top: 15px;
+        }
+
+        .faq {
+            padding: 60px 20px;
+        }
+
+        .faq h2 {
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            cursor: pointer;
+            margin-bottom: 10px;
+            background-color: #2a9d8f; /* Teal for FAQ items */
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .faq-item h4 {
+            background-color: #2a9d8f; /* Dark gray for FAQ titles */
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item p {
+            display: none;
+            padding: 20px;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            margin-top: 10px;
+            background-color: #f7f7f7; /* Light gray for FAQ answers */
+            color: #333333; /* Dark gray text for FAQ answers */
+        }
+
+        
+
+        .team {
+            background-color: #f7f7f7; /* Light gray for the team section */
+            padding: 60px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .team h2 {
+            color: #2a9d8f; /* Teal for team header */
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .team-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+        }
+
+        .team-member {
+            flex: 0 0 200px;
+            background-color: #2a9d8f; /* Teal for team member cards */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .team-member h4 {
+            color: #ffffff; /* White for team member names */
+            margin-top: 15px;
+        }
+
+        .team-member p {
+            color: #e9e9e9; /* Light gray text for team member roles */
+        }
+
+        footer {
+            background-color: #333333; /* Dark gray for footer */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .steps, .recipes-grid, .plans, .blog-grid, .health-benefits, .testimonial {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .step, .recipe-card, .plan, .blog-card, .benefit-card, .testimonial-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .cta-button {
+                width: 100%;
+            }
+
+            .header-icons {
+                top: 10px;
+                right: 10px;
+            }
+
+            .team-slider {
+                flex-direction: column;
+            }
+
+            .team-member {
+                flex: 1;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const answer = this.querySelector('p');
+                    const isVisible = answer.style.display === 'block';
+                    answer.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Plant-Based Meals Delivered</h1>
+    <p>Explore our delicious plant-based recipes and subscribe for fresh inspiration every week.</p>
+    <a href="#plans"><button class="cta-button">Choose Your Plan</button></a>
+    <div class="header-icons">
+        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+</header>
+
+<div class="container">
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.40.05.png" alt="Step 1">
+                <h3>Step 1</h3>
+                <p>Subscribe for weekly deliveries.</p>
+            </div>
+            <div class="step">
+                
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.37.52.png" alt="Step 2">
+                <h3>Step 2</h3>
+                <p>Select your favorite high-protein recipes from our collection of plant-based meals.</p>
+            </div>
+            <div class="step">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.41.40.png" alt="Step 3">
+                <h3>Step 3</h3>
+                <p>Get fresh, pre-portioned ingredients delivered to your door.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="health-benefits">
+        <h2>Health Benefits of a Plant-Based Diet</h2>
+        <div class="benefit-card">
+            <h3>1. Improved Heart Health</h3>
+            <p>A plant-based diet is rich in nutrients that support heart health, including fiber, vitamins, and minerals.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>2. Flexible Subscription Plans</h3>
+            <p>Stay nourished with our flexible subscription plans, offering fresh, plant-based meals delivered to your door. Skip or cancel anytime.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>3. Lower Risk of Chronic Diseases</h3>
+            <p>Studies have shown that a plant-based diet can reduce the risk of developing chronic conditions like type 2 diabetes, certain cancers, and hypertension.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>4. Enhanced Digestive Health</h3>
+            <p>The high fiber content in plant-based foods supports a healthy digestive system by promoting regular bowel movements and improving gut health.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>5. Increased Energy Levels</h3>
+            <p>Many people experience higher energy levels and improved overall well-being when following a plant-based diet.</p>
+        </div><div class="benefit-card">
+            <h3>6. Complete Nutrition in Every Meal</h3>
+            <p>Our plant-based meals deliver essential proteins, amino acids, and balanced nutrition. Enjoy wholesome, delicious food that fuels your health and well-being.</p>
+        </div>
+    
+    </section>
+
+    <section class="recipes-section">
+        <h2>Our plant-Based Recipes</h2>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.43.11.png" alt="Quinoa & Black Bean Salad">
+                <h3>Mexican Quinoa Salad Bowl</h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.44.40.png" alt="Roasted Veggie Buddha Bowl">
+                <h3>Asian Tofu Stir-Fry </h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.45.19.png" alt="Lentil & Spinach Curry">
+                <h3>Lentil & Spinach Curry</h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.46.38.png" alt="Avocado & Tomato Sandwich">
+                <h3>Avocado & Tomato Sandwich</h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.47.26.png" alt="Vegetable Stir-Fry">
+                <h3>Vegetable Stir-Fry</h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="recipes-section">
+        <h2>Our plant-based Desserts</h2>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.50.11.png" alt="Vegan Chocolate Cake">
+                <h3>Chocolate Chia Seed Pudding </h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.53.17.png" alt="Fruit Tart">
+                <h3>Peanut Butter Protein Balls </h3>
+                
+                <div class="buttons">
+                   
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="/Users/sa/Desktop/Screenshot 2024-08-21 at 10.54.35.png" alt="Vegan Ice Cream">
+                <h3>Vegan Protein Brownies </h3>
+                
+                <div class="buttons">
+                    
+                    <button class="read-more">Read More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="plans" class="subscription-plans">
+        <h2>Choose Your Plan</h2>
+        <div class="plans">
+            <div class="plan">
+                <h4>Basic Plan</h4>
+                <p>2 Recipes Per Week</p>
+                <p>*From 199 DKK/week</p>
+                <button>Select Plan</button>
+            </div>
+            <div class="plan">
+                <h4>Standard Plan</h4>
+                <p>3 Recipes Per Week</p>
+                <p>*From 249 DKK/week</p>
+                <button>Select Plan</button>
+            </div>
+            <div class="plan">
+                <h4>Premium Plan</h4>
+                <p>4 Recipes Per Week</p>
+                <p>*From 349 DKK/week</p>
+                <button>Select Plan</button>
+            </div>
+            <div class="plan">
+                <h4>Premium Plus</h4>
+                <p>5 Recipes Per Week</p>
+                <p>*From 449 DKK/week</p>
+                <button>Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <h2>What Our Customers Are Saying</h2>
+        <div class="testimonial-card">
+            <img src="https://via.placeholder.com/100x100" alt="Customer 1">
+            <p>"These plant-based meals have completely transformed the way I eat. They’re easy to prepare and packed with flavor. I love how convenient and healthy they are!"</p>
+            <h4>- Sarah M.</h4>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://via.placeholder.com/100x100" alt="Customer 2">
+            <p>"The variety and freshness of ingredients are amazing. My family loves every meal we try. Highly recommend!"</p>
+            <h4>- John D.</h4>
+        </div>
+        <div class="testimonial-card">
+            <img src="https://via.placeholder.com/100x100" alt="Customer 3">
+            <p>"Switching to a plant-based diet was made so easy with these delicious recipes. Thank you!"</p>
+            <h4>- Emily R.</h4>
+        </div>
+    </section>
+
+    <section class="blog">
+        <h2>From Our Blog</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="https://via.placeholder.com/300x200" alt="Blog 1">
+                <h4>The Benefits of Going Plant-Based</h4>
+                <p>Explore the health benefits of a plant-based diet and why you should consider making the switch.</p>
+            </div>
+            <div class="blog-card">
+                <img src="https://via.placeholder.com/300x200" alt="Blog 2">
+                <h4>5 Easy Plant-Based Recipes</h4>
+                <p>Discover five simple and delicious plant-based recipes that you can prepare in under 30 minutes.</p>
+            </div>
+            <div class="blog-card">
+                <img src="https://via.placeholder.com/300x200" alt="Blog 3">
+                <h4>How to Meal Prep for a Plant-Based Diet</h4>
+                <p>Learn how to meal prep effectively for a plant-based diet and save time during the week.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-slider">
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 1">
+                <h4>John Doe</h4>
+                <p>CEO</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 2">
+                <h4>Jane Smith</h4>
+                <p>Nutrition Expert</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 3">
+                <h4>Bob Johnson</h4>
+                <p>Head Chef</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 4">
+                <h4>Alice Brown</h4>
+                <p>Marketing Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 5">
+                <h4>David Green</h4>
+                <p>Operations Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 6">
+                <h4>Emma White</h4>
+                <p>Customer Support</p>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/100" alt="Team Member 7">
+                <h4>Chris Black</h4>
+                <p>Logistics</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>How does the subscription work? <span>+</span></h4>
+            <p>Once you subscribe, you will receive a weekly delivery of fresh ingredients and recipes based on your selected plan. You can pause or cancel anytime.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Can I choose my recipes? <span>+</span></h4>
+            <p>Yes, you can select from our rotating menu of 20 plant-based recipes each week.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What if I have dietary restrictions? <span>+</span></h4>
+            <p>We offer a variety of recipes to accommodate different dietary needs. You can filter your choices based on your preferences.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Is there a minimum commitment for subscriptions? <span>+</span></h4>
+            <p>No, you can pause or cancel your subscription at any time without any minimum commitment.</h4>
+        </div>
+        <div class="faq-item">
+            <h4>Do you offer gift subscriptions? <span>+</span></h4>
+            <p>Yes, you can purchase gift subscriptions for your friends and family. It's a great way to introduce them to a plant-based lifestyle!</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; Group 06, Challenge B. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
